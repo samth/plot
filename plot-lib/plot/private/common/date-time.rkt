@@ -28,39 +28,7 @@
                           [nanosecond : Natural]
                           [tz : (U Integer #f)])])
 
-(require/typed
- racket/base
- [#:struct date ([second : Byte]
-                 [minute : Byte]
-                 [hour : Byte]
-                 [day : Positive-Byte]
-                 [month : Positive-Byte]
-                 [year : Integer]
-                 [week-day : Byte]
-                 [year-day : Index]
-                 [dst? : Boolean]
-                 [time-zone-offset : Integer])
-           #:extra-constructor-name make-date]
- [#:struct (date* date) ([nanosecond : Nonnegative-Fixnum]
-                         [time-zone-name : String])
-           #:extra-constructor-name make-date*]
- [seconds->date  (->* [Real] [Any] date*)]
- )
-
-(require/typed
- racket/date
- [current-date  (-> date*)]
- [date->string  (->* [date] [Any] String)]
- [date-display-format  (-> (U 'american
-                              'chinese
-                              'german
-                              'indian
-                              'irish
-                              'iso-8601
-                              'rfc2822
-                              'julian))]
- [date->seconds  (->* [date] [Any] Integer)]
- [date*->seconds  (->* [date] [Any] Real)])
+(require typed/racket/date)
 
 (define seconds-per-minute 60)
 (define seconds-per-hour (* 60 seconds-per-minute))
