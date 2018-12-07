@@ -223,9 +223,9 @@
              [color  (in-cycle* (in-list colors))]
              [style  (in-cycle* (in-list styles))]
              [alpha : Nonnegative-Real  (in-cycle* (in-list alphas))]
-             [line-color  (in-cycle* (in-list line-colors))]
+             [line-color : Plot-Color (in-cycle* (in-list line-colors))]
              [line-width : Nonnegative-Real  (in-cycle* (in-list line-widths))]
-             [line-style  (in-cycle* (in-list line-styles))])
+             [line-style : Plot-Pen-Style (in-cycle* (in-list line-styles))])
          (send area put-alpha alpha)
          (send area put-pen line-color line-width line-style)
          (send area put-brush color style)

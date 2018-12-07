@@ -291,9 +291,9 @@
       (for/list ([z-ivls  (in-list (transpose z-ivlss))]
                  [color   (in-cycle* (generate-list colors max-num))]
                  [style   (in-cycle* (generate-list styles max-num))]
-                 [line-color  (in-cycle* (generate-list line-colors max-num))]
+                 [line-color : Plot-Color (in-cycle* (generate-list line-colors max-num))]
                  [line-width : Nonnegative-Real  (in-cycle* (generate-list line-widths max-num))]
-                 [line-style  (in-cycle* (generate-list line-styles max-num))]
+                 [line-style : Plot-Pen-Style (in-cycle* (generate-list line-styles max-num))]
                  [alpha : Nonnegative-Real  (in-cycle* (generate-list alphas max-num))]
                  [label   (in-cycle* (generate-list labels max-num))])
         (discrete-histogram3d
